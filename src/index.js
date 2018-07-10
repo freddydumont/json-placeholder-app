@@ -9,7 +9,7 @@ import './index.css';
 import App from './components/App';
 import reducer from './redux/reducers';
 import rootSaga from './redux/sagas';
-// import registerServiceWorker from './registerServiceWorker';
+import { unregister } from './registerServiceWorker';
 
 const sagaMiddleware = createSagaMiddleware();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -26,4 +26,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-// registerServiceWorker();
+
+unregister();
