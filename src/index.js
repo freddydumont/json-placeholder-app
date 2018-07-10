@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import 'semantic-ui-css/semantic.min.css';
 
+import './index.css';
 import App from './components/App';
 import reducer from './redux/reducers';
 import rootSaga from './redux/sagas';

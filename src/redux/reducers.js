@@ -32,10 +32,14 @@ const albums = (state = null, action) => {
   }
 };
 
-const users = (state = null, action) => {
-  switch (action.type) {
+const users = (state = null, { type, payload }) => {
+  switch (type) {
     case USERS_RESOLVED:
-      return action.payload;
+      // store as an object with id as key
+      return payload.reduce((userObject, user) => {
+        userObject[user.id] = user;
+        return userObject;
+      }, {});
     default:
       return state;
   }
@@ -53,7 +57,7 @@ const login = (state = false, action) => {
 };
 
 const loading = (
-  state = { posts: false, albums: false, users: false },
+  state = { posts: true, albums: true, users: true },
   action
 ) => {
   switch (action.type) {

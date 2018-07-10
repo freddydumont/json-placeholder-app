@@ -29,18 +29,8 @@ class Home extends React.Component {
 
   render() {
     return (
-      <main>
-        <style>{`
-      body > div,
-      body > div > main {
-        height: 100%;
-      }
-    `}</style>
-        <Grid
-          textAlign="center"
-          style={{ height: '100%' }}
-          verticalAlign="middle"
-        >
+      <main className="h-100">
+        <Grid textAlign="center" verticalAlign="middle" className="h-100">
           <Grid.Column style={{ maxWidth: 450 }}>
             <Header as="h2" color="teal" textAlign="center">
               <Icon name="sign in" /> Log in to your account
@@ -75,7 +65,6 @@ class Home extends React.Component {
 
             {/* MESSAGE WITH USERNAME LIST POPUP */}
             <Popup
-              style={{ height: 'initial' }} // reset because of style tag in main
               on={['hover', 'click', 'focus']}
               hoverable
               trigger={
