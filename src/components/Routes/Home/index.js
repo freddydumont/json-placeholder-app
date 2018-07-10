@@ -54,6 +54,7 @@ class Home extends React.Component {
                   placeholder="Username"
                   value={this.state.username}
                   onChange={this.handleChange('username')}
+                  required
                 />
                 <Form.Input
                   fluid
@@ -63,6 +64,7 @@ class Home extends React.Component {
                   type="password"
                   value={this.state.password}
                   onChange={this.handleChange('password')}
+                  required
                 />
 
                 <Form.Button color="teal" fluid size="large" content="Log In" />
