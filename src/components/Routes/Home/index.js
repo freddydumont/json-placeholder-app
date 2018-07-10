@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import {
   Form,
   Grid,
@@ -11,12 +12,13 @@ import {
 } from 'semantic-ui-react';
 
 import { usernames } from '../../../static';
+import { login } from '../../../redux/actions';
 
 class Home extends React.Component {
   state = { username: '', password: '' };
 
   handleSubmit = () => {
-    console.log(this.state.username);
+    this.props.dispatch(login(this.props.history));
   };
 
   handleChange = name => event => {
@@ -98,4 +100,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default connect()(Home);

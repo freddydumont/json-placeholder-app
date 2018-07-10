@@ -15,7 +15,7 @@ import {
 const posts = (state = null, action) => {
   switch (action.type) {
     case POSTS_RESOLVED:
-      return action.payload.data;
+      return action.payload;
     default:
       return state;
   }
@@ -24,7 +24,7 @@ const posts = (state = null, action) => {
 const albums = (state = null, action) => {
   switch (action.type) {
     case ALBUMS_RESOLVED:
-      return action.payload.data;
+      return action.payload;
     default:
       return state;
   }
@@ -33,7 +33,7 @@ const albums = (state = null, action) => {
 const users = (state = null, action) => {
   switch (action.type) {
     case USERS_RESOLVED:
-      return action.payload.data;
+      return action.payload;
     default:
       return state;
   }

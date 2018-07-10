@@ -18,3 +18,8 @@ export const USERS_RESOLVED = 'USERS_RESOLVED';
 export const USERS_REJECTED = 'USERS_REJECTED';
 
 export const getUsers = () => ({ type: USERS_REQUESTED, meta: 'users' });
+
+// LOGIN
+export const LOGIN = 'LOGIN';
+
+export const login = history => ({ type: LOGIN, payload: history });

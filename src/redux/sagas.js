@@ -1,7 +1,15 @@
 import axios from 'axios';
-import { call, takeEvery, put } from 'redux-saga/effects';
+import { call, takeEvery, put, all } from 'redux-saga/effects';
 
-import { ALBUMS_REQUESTED, POSTS_REQUESTED, USERS_REQUESTED } from './actions';
+import {
+  ALBUMS_REQUESTED,
+  POSTS_REQUESTED,
+  USERS_REQUESTED,
+  LOGIN,
+  getAlbums,
+  getPosts,
+  getUsers,
+} from './actions';
 
 /**
  * GETs the resource on the API endpoint using axios
@@ -22,14 +30,23 @@ function fetchResource(resource) {
 function* fetchResourceSaga({ meta }) {
   const RESOURCE = meta.toUpperCase();
   try {
-    const data = yield call(fetchResource, meta);
+    const { data } = yield call(fetchResource, meta);
     yield put({ type: `${RESOURCE}_RESOLVED`, payload: data, meta });
   } catch (error) {
     yield put({ type: `${RESOURCE}_REJECTED`, payload: error, meta });
   }
 }
 
+// payload has history object from react-router
+function* login({ payload: history }) {
+  // route to /content
+  history.push('/content');
+  // dispatch requests
+  yield all([put(getAlbums()), put(getPosts()), put(getUsers())]);
+}
+
 export default function* rootSaga() {
+  yield takeEvery(LOGIN, login);
   yield takeEvery(POSTS_REQUESTED, fetchResourceSaga);
   yield takeEvery(ALBUMS_REQUESTED, fetchResourceSaga);
   yield takeEvery(USERS_REQUESTED, fetchResourceSaga);
