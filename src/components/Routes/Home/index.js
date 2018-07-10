@@ -1,20 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {
-  Form,
-  Grid,
-  Header,
-  Icon,
-  List,
-  Message,
-  Popup,
-  Segment,
-} from 'semantic-ui-react';
+import { Form, Grid, Header, Icon, Segment } from 'semantic-ui-react';
 
-import { usernames } from '../../../static';
 import { login } from '../../../redux/actions';
 
-class Home extends React.Component {
+export class Home extends React.Component {
   state = { username: '', password: '' };
 
   handleSubmit = () => {
@@ -62,26 +52,6 @@ class Home extends React.Component {
                 <Form.Button color="teal" fluid size="large" content="Log In" />
               </Segment>
             </Form>
-
-            {/* MESSAGE WITH USERNAME LIST POPUP */}
-            <Popup
-              on={['hover', 'click', 'focus']}
-              hoverable
-              trigger={
-                <Message
-                  info
-                  header="Hover or tap here for a list of usernames"
-                />
-              }
-            >
-              <Popup.Content>
-                <List>
-                  {usernames.map(name => (
-                    <List.Item key={name} content={name} />
-                  ))}
-                </List>
-              </Popup.Content>
-            </Popup>
           </Grid.Column>
         </Grid>
       </main>
