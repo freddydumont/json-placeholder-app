@@ -23,3 +23,8 @@ export const getUsers = () => ({ type: USERS_REQUESTED, meta: 'users' });
 export const LOGIN = 'LOGIN';
 
 export const login = history => ({ type: LOGIN, payload: history });
+
+// LOGOUT
+export const LOGOUT = 'LOGOUT';
+
+export const logout = history => ({ type: LOGOUT, payload: history });

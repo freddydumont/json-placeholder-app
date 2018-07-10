@@ -10,6 +10,8 @@ import {
   USERS_REQUESTED,
   USERS_REJECTED,
   USERS_RESOLVED,
+  LOGIN,
+  LOGOUT,
 } from './actions';
 
 const posts = (state = null, action) => {
@@ -34,6 +36,17 @@ const users = (state = null, action) => {
   switch (action.type) {
     case USERS_RESOLVED:
       return action.payload;
+    default:
+      return state;
+  }
+};
+
+const login = (state = false, action) => {
+  switch (action.type) {
+    case LOGIN:
+      return true;
+    case LOGOUT:
+      return false;
     default:
       return state;
   }
@@ -93,6 +106,13 @@ const errors = (
   }
 };
 
-const reducer = combineReducers({ posts, albums, users, loading, errors });
+const reducer = combineReducers({
+  posts,
+  albums,
+  users,
+  loading,
+  errors,
+  login,
+});
 
 export default reducer;

@@ -6,6 +6,7 @@ import {
   POSTS_REQUESTED,
   USERS_REQUESTED,
   LOGIN,
+  LOGOUT,
   getAlbums,
   getPosts,
   getUsers,
@@ -45,8 +46,13 @@ function* login({ payload: history }) {
   yield all([put(getAlbums()), put(getPosts()), put(getUsers())]);
 }
 
+function logout({ payload: history }) {
+  history.push('/');
+}
+
 export default function* rootSaga() {
   yield takeEvery(LOGIN, login);
+  yield takeEvery(LOGOUT, logout);
   yield takeEvery(POSTS_REQUESTED, fetchResourceSaga);
   yield takeEvery(ALBUMS_REQUESTED, fetchResourceSaga);
   yield takeEvery(USERS_REQUESTED, fetchResourceSaga);
