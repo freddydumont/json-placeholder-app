@@ -1,5 +1,6 @@
 {
   "name": "json-placeholder-app",
+  "homepage": "https://freddydumont.github.io/json-placeholder-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,9 +17,14 @@
     "semantic-ui-react": "^0.82.0"
   },
   "scripts": {
+    "predeploy": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }
