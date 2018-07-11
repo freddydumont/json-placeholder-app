@@ -27,7 +27,7 @@ export class Home extends React.Component {
             </Header>
 
             {/* LOGIN FORM */}
-            <Form size="large" onSubmit={this.handleSubmit}>
+            <Form size="large" onSubmit={this.handleSubmit} data-testid="form">
               <Segment>
                 <Form.Input
                   fluid
